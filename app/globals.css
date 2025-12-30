@@ -1,5 +1,13 @@
+@import "https://fonts.cdnfonts.com/css/wondrous-2";
+@import "https://fonts.cdnfonts.com/css/jelly-2";
 @import "tailwindcss";
+.font{
+font-family: 'Wondrous', sans-serif;
+}
+.font2{
+font-family: 'Jelly', sans-serif;
 
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

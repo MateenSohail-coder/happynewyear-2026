@@ -162,25 +162,55 @@ export default function CelebrationPage() {
           </div>
         ))}
       </div>
-
       {!isStarted && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm">
-          <button
+        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#050505] backdrop-blur-2xl">
+          {/* High-end Container for floating effect */}
+          <div
+            className="relative group cursor-pointer transform hover:scale-105 transition-all duration-500 animate-bounce-slow"
             onClick={() => setIsStarted(true)}
-            className="px-12 py-4 bg-white text-black rounded-full font-bold tracking-widest hover:scale-105 transition-transform uppercase text-sm"
           >
-            Begin the New Year
-          </button>
+            {/* 1. Massive Animated Glow - Larger Blur Radius */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-rose-600 via-pink-500 to-purple-600 rounded-full blur-[20px] opacity-60 group-hover:opacity-100 group-hover:blur-[30px] transition duration-700 animate-pulse"></div>
+
+            {/* 2. The Main Cinematic Button */}
+            <button className="relative px-16 py-8 bg-black/80 backdrop-blur-md rounded-full border border-white/10 flex items-center shadow-2xl overflow-hidden">
+              {/* Shimmer Effect - A light ray that passes over the button */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer"></div>
+
+              <span className="flex items-center space-x-6">
+                {/* Status Indicator (Bigger) */}
+                <span className="flex h-4 w-4 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-4 w-4 bg-rose-500 shadow-[0_0_10px_#f43f5e]"></span>
+                </span>
+
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-gray-400 text-[0.6rem] tracking-[0.4em] uppercase mb-2 font-medium">
+                    A Personal Message For
+                  </span>
+                  <span className="text-white flex items-center gap-3 font-black tracking-[0.2em] uppercase text-2xl sm:text-3xl font2">
+                    {displayName} <span className="text-rose-500">✨</span>
+                  </span>
+                </div>
+              </span>
+            </button>
+
+            {/* 3. Enhanced Hint Text */}
+            <div className="absolute -bottom-16 left-0 right-0 flex flex-col items-center gap-2">
+              <p className="text-white/60 text-sm tracking-[0.5em] uppercase font-light animate-pulse">
+                Click to Open
+              </p>
+              <div className="w-1 h-8 bg-gradient-to-b from-rose-500 to-transparent rounded-full animate-bounce"></div>
+            </div>
+          </div>
         </div>
       )}
-
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none z-20"
       />
-
       <div className="relative z-10 text-center px-6">
-        <div className="flex items-center justify-center gap-3 font-black text-[18vw] sm:text-[11rem] leading-none text-white tracking-tighter">
+        <div className="flex items-center justify-center gap-3 font-black text-[20vw] sm:text-[12rem] leading-none text-white tracking-tighter font2">
           <span className="opacity-90">2</span>
           <span className="opacity-90">0</span>
           <span className="opacity-90">2</span>
@@ -202,9 +232,9 @@ export default function CelebrationPage() {
           <p className="ui-reveal text-xs sm:text-sm tracking-[0.5em] text-white/40 uppercase font-medium">
             Est. 2026
           </p>
-          <h1 className="ui-reveal text-5xl sm:text-7xl font-bold text-white tracking-tight">
+          <h1 className="ui-reveal font text-6xl sm:text-8xl font-bold text-white tracking-tight">
             Happy New Year, <br />
-            <span className="bg-gradient-to-r from-rose-400 via-white to-rose-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r font2 from-rose-400 via-white to-rose-400 bg-clip-text text-transparent">
               {displayName}
             </span>
           </h1>
@@ -214,7 +244,6 @@ export default function CelebrationPage() {
           </p>
         </div>
       </div>
-
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,0,10,0.3)_0%,transparent_100%)]" />
     </div>
   );
